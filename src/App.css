@@ -17,71 +17,234 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px 40px;
   border-bottom: 1px solid #E5E7EB;
 }
 
-.navbar-middle {
+.navbar-left {
   display: flex;
-  gap: 32px;
+  align-items: center;
+  gap: 8px;
 }
 
-.navbar-middle a {
-  text-decoration: none;
-  color: #4B5563;
-  font-size: 14px;
+.logo {
+  height: 32px;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
 }
 
 .navbar-right {
   display: flex;
-  gap: 12px;
+  align-items: center;
 }
 
-.navbar button {
-  padding: 8px 16px;
-  border-radius: 6px;
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #4B5563;
   font-size: 14px;
+  padding: 0 16px;
+  border-right: 1px solid #E5E7EB;
+}
+
+.navbar-links a:last-child {
+  border-right: none;
+}
+
+.dropdown-content {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 8px;
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  min-width: 200px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 1000;
+}
+
+.dropdown-content.active {
+  display: block;
+}
+
+.dropdown-section {
+  padding: 12px 16px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.dropdown-section:last-child {
+  border-bottom: none;
+}
+
+.dropdown-section h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.dropdown-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dropdown-links a {
+  color: #2563EB;
+  text-decoration: none;
+  font-size: 14px;
+  border: none;
+  padding: 0;
+}
+
+.dropdown-links span {
+  color: #E5E7EB;
+}
+
+.login-signup {
+  font-size: 14px;
+  color: #4B5563;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 16px;
+  border-left: 1px solid #E5E7EB;
+  position: relative;
+}
+
+.login-signup:hover {
+  color: #111827;
+}
+
+.dropdown-arrow {
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
+
+.dropdown-arrow.active {
+  transform: rotate(180deg);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background-color: transparent;
+  border: none;
+  color: #4B5563;
+  font-size: 24px;
   cursor: pointer;
 }
 
-.login-btn {
-  background: transparent;
-  border: 1px solid #E5E7EB;
-  color: #4B5563;
-}
+@media (max-width: 768px) {
+  .navbar {
+    padding: 16px;
+  }
 
-.signup-btn {
-  background: #0EA5E9;
-  border: none;
-  color: white;
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-bottom: 1px solid #E5E7EB;
+    flex-direction: column;
+    align-items: start;
+    padding: 16px;
+    display: none;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease-out forwards;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-links a {
+    display: block;
+    padding: 12px 0;
+    border-right: none;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .navbar-links a:last-child {
+    border-bottom: none;
+  }
+
+  .login-signup {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 }
 
 /* Hero styles */
+.colored-patch {
+  position: absolute;
+  bottom: 45px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: rgb(240,201,113);
+  background: linear-gradient(90deg, rgba(240,201,113,1) 0%, rgba(240,201,113,1) 15%, rgba(236,164,123,1) 27%, rgba(235,155,126,1) 33%, rgba(235,155,126,1) 42%, rgba(233,137,131,1) 50%, rgba(229,126,142,1) 65%, rgba(228,109,145,1) 79%, rgba(229,106,142,1) 100%);
+  transform: rotate(-3deg);
+  transform-origin: bottom left;
+  z-index: 1;
+  }
+
 .hero {
   display: flex;
   flex-direction: row-reverse;
   padding: 64px 0;
   gap: 48px;
-  position: relative; /* Add relative positioning to parent */
+  position: relative;
 }
 
 .hero-content {
   flex: 1;
-  position: relative; /* Add relative positioning */
-  z-index: 2; /* Ensure content stays above images */
+  position: relative;
+  z-index: 2;
+  top: 60px;
 }
 
 .hero-content h1 {
   font-size: 48px;
-  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
   color: #111827;
   margin-bottom: 16px;
   line-height: 1.2;
 }
 
 .hero-content .highlight {
-  color: #0EA5E9;
+  background: linear-gradient(90deg, #1173B3 0%, #0CB9B3 100%);
+  -webkit-background-clip: text; /* For Safari and Chrome */
+  -webkit-text-fill-color: transparent; /* Makes the text transparent so the gradient shows */
+  background-clip: text; /* Standard property for Firefox */
 }
+
 
 .hero-content p {
   font-size: 18px;
@@ -91,44 +254,76 @@
 
 .search-bar {
   display: flex;
+  position: relative;
   gap: 12px;
   margin-top: 32px;
-  position: absolute; /* Change to absolute positioning */
-  left: 0;
-  right: -120px; /* Extend beyond the content area */
-  bottom: -80px; /* Position it lower to overlap images */
-  background: white; /* Add background to ensure text is readable */
+  width: 190%;
+  right: 90%;
+  top: 50px;
+  background: white;
   padding: 24px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.search-input, .location-input, .insurance-input {
+  position: relative;
+  flex: 1;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .search-bar input {
-  padding: 12px 16px;
+  padding: 20px 16px 20px 40px;
   border: 1px solid #E5E7EB;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 14px;
   width: 100%;
+  outline: none;
+  background-color: #f9fafb;
 }
 
-.search-bar button {
+.search-bar input:focus {
+  border-color: #0EA5E9;
+}
+
+.search-divider {
+  width: 1px;
+  background-color: #E5E7EB;
+  margin: 0 4px;
+}
+
+.find-now {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text */
+  width: 14%;
+  font-size: 16px;
   padding: 12px 24px;
-  background: #0EA5E9;
+  background: linear-gradient(90deg, #7CD0A2 0%, #4683D0 100%);
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  white-space: nowrap;
+  font-weight: 500;
+  transition: background-color 0.2s;
 }
+
 
 .hero-images {
   flex: 1;
   display: flex;
   gap: 16px;
   height: 600px;
-  position: relative; /* Keep relative positioning */
-  z-index: 1; /* Ensure images are behind content */
-  overflow: hidden; /* Hide the overflowing images */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .image-column {
@@ -136,7 +331,68 @@
   flex-direction: column;
   gap: 16px;
   width: 50%;
-  animation: loopAnimation 30s linear infinite; /* Add looping animation */
+  animation: loopAnimation 30s linear infinite;
+}
+
+.image-column img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  height: 70%;
+}
+
+.image-column.left {
+  animation: slideDown 15s linear infinite;
+}
+
+.image-column.right {
+  animation: slideUp 15s linear infinite;
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-content {
+    top: 0px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .find-now {
+    width: 100%;
+  }
+
+  
+  .search-bar {
+    position: relative;
+    right: 0;
+    top: 0;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .search-divider {
+    display: none;
+  }
+  
+  .hero-images {
+    display: none;
+  }
 }
 
 /* Animation for infinite looping */
@@ -146,12 +402,6 @@
   100% { transform: translateY(0); } /* Bring them back to original position */
 }
 
-.image-column img {
-  width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-  height: 200px;
-}
 
 /* Adjusting the images for the infinite loop by duplicating */
 .image-column.left {
@@ -328,6 +578,11 @@
   
   .search-bar {
     flex-direction: column;
+  }
+
+  .pillar-card {
+    height: 100%;
+    padding-bottom: 15px;
   }
   
   .hero-images {
