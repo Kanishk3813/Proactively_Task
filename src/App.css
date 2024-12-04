@@ -1,38 +1,344 @@
-.App {
-  text-align: center;
+/* src/styles.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-family: 'Inter', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Navbar styles */
+.navbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px 0;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.navbar-middle {
+  display: flex;
+  gap: 32px;
+}
+
+.navbar-middle a {
+  text-decoration: none;
+  color: #4B5563;
+  font-size: 14px;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 12px;
+}
+
+.navbar button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.login-btn {
+  background: transparent;
+  border: 1px solid #E5E7EB;
+  color: #4B5563;
+}
+
+.signup-btn {
+  background: #0EA5E9;
+  border: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Hero styles */
+.hero {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 64px 0;
+  gap: 48px;
+  position: relative; /* Add relative positioning to parent */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.hero-content {
+  flex: 1;
+  position: relative; /* Add relative positioning */
+  z-index: 2; /* Ensure content stays above images */
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.hero-content .highlight {
+  color: #0EA5E9;
+}
+
+.hero-content p {
+  font-size: 18px;
+  color: #6B7280;
+  margin-bottom: 32px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+  position: absolute; /* Change to absolute positioning */
+  left: 0;
+  right: -120px; /* Extend beyond the content area */
+  bottom: -80px; /* Position it lower to overlap images */
+  background: white; /* Add background to ensure text is readable */
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.search-bar input {
+  padding: 12px 16px;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.search-bar button {
+  padding: 12px 24px;
+  background: #0EA5E9;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hero-images {
+  flex: 1;
+  display: flex;
+  gap: 16px;
+  height: 600px;
+  position: relative; /* Keep relative positioning */
+  z-index: 1; /* Ensure images are behind content */
+  overflow: hidden; /* Hide the overflowing images */
+}
+
+.image-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 50%;
+  animation: loopAnimation 30s linear infinite; /* Add looping animation */
+}
+
+/* Animation for infinite looping */
+@keyframes loopAnimation {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-100%); } /* Move the images up */
+  100% { transform: translateY(0); } /* Bring them back to original position */
+}
+
+.image-column img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  height: 200px;
+}
+
+/* Adjusting the images for the infinite loop by duplicating */
+.image-column.left {
+  animation: slideDown 15s linear infinite;
+}
+
+.image-column.right {
+  animation: slideUp 15s linear infinite;
+}
+
+/* Keyframes for sliding animation */
+@keyframes slideDown {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+
+
+/* LifestylePillars styles */
+
+
+.pillars-tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.pillars-tabs button {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  color: #6B7280;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.pillars-tabs button.active {
+  background: #000000;
+  color: white;
+}
+
+.lifestyle-pillars {
+  padding: 64px 0;
+  overflow: hidden;
+}
+
+.lifestyle-pillars h2 {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.section-title h3 {
+  font-size: 24px;
+  color: #111827;
+}
+
+.section-title span {
+  color: #0ea5e9;
+}
+
+.navigation button {
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 6px;
+  margin-left: 8px;
+  cursor: pointer;
+  display: block;
+}
+
+.navigation button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pillars-carousel {
+  display: flex;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  position: relative;
+  gap: 16px; /* Space between cards when scrolling */
+  scroll-snap-type: x mandatory; /* Ensures smooth scrolling */
+  -ms-overflow-style: none;  /* Hides scrollbar for IE and Edge */
+  scrollbar-width: none;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.pillar-card {
+  flex: 0 0 calc(100% / 2.5); /* Show 2.5 cards */
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pillar-card img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.metric {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: white;
+  padding: 4px 8px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between the icon, number, and label */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.metric .number {
+  font-weight: 600;
+}
+
+.metric .label {
+  color: #6B7280;
+  font-size: 14px;
+}
+
+.metric-icon {
+  width: 20px; /* Adjust the size of the icon */
+  height: 20px;
+  object-fit: contain;
+  order: -1;
+}
+
+.pillar-card h4 {
+  margin: 16px;
+  font-size: 18px;
+  color: #111827;
+}
+
+.pillar-card p {
+  margin: 0 16px 16px;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar-middle {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .hero {
+    flex-direction: column;
+  }
+  
+  .search-bar {
+    flex-direction: column;
+  }
+  
+  .hero-images {
+    display: none;
+  }
+  
+  .pillars-content {
+    grid-template-columns: 1fr;
+  }
+
+  .navigation button {
+    display: none;
   }
 }
