@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';  // Single CSS file
+import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import LifestylePillars from './components/LifestylePillars';

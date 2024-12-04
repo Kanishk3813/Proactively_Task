@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const LifestylePillars = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -73,11 +74,11 @@ const LifestylePillars = () => {
       <h2>HOW IT WORKS</h2>
       <div className="section-title">
         <h3>
-          Lifestyle as medicine: <span>The six pillars</span>
+        <span className="highlight2">Lifestyle as medicine:</span> The six pillars
         </h3>
         <div className="navigation">
-          <button onClick={handlePrev}>←</button>
-          <button onClick={handleNext}>→</button>
+          <button onClick={handlePrev}><FaArrowLeft /></button>
+          <button onClick={handleNext}><FaArrowRight /></button>
         </div>
       </div>
 
@@ -97,7 +98,7 @@ const LifestylePillars = () => {
         <div
           className="carousel-track"
           style={{
-            transform: `translateX(-${activeIndex * (100 / 3)}%)`, // Show 2.5 cards
+            transform: `translateX(-${activeIndex * (100 / 3)}%)`,
             transition: 'transform 0.5s ease-in-out'
           }}
         >
