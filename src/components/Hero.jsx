@@ -43,16 +43,8 @@ const Hero = () => {
             <img src="/2.png" alt="Yoga practice" />
             <img src="/3.png" alt="Beach exercise" />
             <img src="/4.png" alt="Meditation" />
-            <img src="/1.png" alt="Healthy cooking" />
-            <img src="/2.png" alt="Yoga practice" />
-            <img src="/3.png" alt="Beach exercise" />
-            <img src="/4.png" alt="Meditation" />
           </div>
           <div className="image-column right">
-            <img src="/5.png" alt="Doctor consultation" />
-            <img src="/6.png" alt="Stretching" />
-            <img src="/7.png" alt="Cooking" />
-            <img src="/8.png" alt="Cutting" />
             <img src="/5.png" alt="Doctor consultation" />
             <img src="/6.png" alt="Stretching" />
             <img src="/7.png" alt="Cooking" />

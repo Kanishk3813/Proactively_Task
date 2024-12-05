@@ -26,7 +26,9 @@ const Navbar = () => {
     <>
       <nav className="navbar">
         <div className="navbar-left">
+          <div className="logo-container">
           <img src="/logo.png" alt="ProVital" className="logo" />
+          </div>
           <span className="brand-name">ProVital</span>
         </div>
 
@@ -66,22 +68,14 @@ const Navbar = () => {
           <button 
             className="mobile-menu-btn" 
             onClick={toggleMobileMenu}
-            aria-label="Open menu"
+            aria-label={showMobileMenu ? "Close menu" : "Open menu"}
           >
-            <IoIosMenu size={24} />
+            {showMobileMenu ? <IoMdClose size={24} /> : <IoIosMenu size={24} />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
       <div className={`mobile-menu-overlay ${showMobileMenu ? 'active' : ''}`}>
-        <button 
-          className="close-menu-btn" 
-          onClick={toggleMobileMenu}
-          aria-label="Close menu"
-        >
-          <IoMdClose size={24} />
-        </button>
         <div className="mobile-menu-content">
           {mobileLinks.map((link, index) => (
             <div key={index} className="mobile-menu-item">
