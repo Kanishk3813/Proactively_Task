@@ -3,7 +3,7 @@ import { Search, MapPin, Building2 } from "lucide-react";
 
 const Hero = () => {
   return (
-    <>
+    <div className="hero-container">
       <section className="hero">
         <div className="hero-content">
           <h1>
@@ -61,7 +61,7 @@ const Hero = () => {
         </div>
       </section>
       <div className="colored-patch"></div>
-    </>
+      </div>
   );
 };
 
