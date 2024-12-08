@@ -230,7 +230,6 @@ body {
   transform: translateY(0);
 }
 
-
 .mobile-menu-item {
   padding: 12px 0;
   border-bottom: 1px solid #E5E7EB;
@@ -297,9 +296,7 @@ body {
   position: relative;
   width: 100vw;
   overflow: hidden;
-  /* Remove any default margins */
   margin: 0;
-  /* Ensure it stretches edge to edge */
   left: 50%;
   right: 50%;
   margin-left: -50vw;
@@ -322,7 +319,7 @@ body {
   .hero {
     display: flex;
     flex-direction: row-reverse;
-    padding: 64px 24px;
+    padding: 0px 24px 65px 0px;
     gap: 48px;
     position: relative;
     max-width: 1280px;
@@ -428,7 +425,7 @@ body {
   flex: 1;
   display: flex;
   gap: 16px;
-  height: 600px;
+  height: 565px;
   position: relative;
   z-index: 1;
   overflow: hidden;
